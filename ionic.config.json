@@ -1,0 +1,7 @@
+{
+  "name": "chat-gpt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
