@@ -2,6 +2,7 @@
   <router-view v-slot="{ Component }">
     <component :class="modeScreen === 'light' ? 'bg-[#EDF1F5]' : ''" :is="Component"></component>
   </router-view>
+  <app-modal />
 </template>
 
 <script setup lang="ts">

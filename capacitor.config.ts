@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'chat-gpt',
+  appName: 'Chat GPT',
   webDir: 'dist',
   server: {
     androidScheme: 'https'

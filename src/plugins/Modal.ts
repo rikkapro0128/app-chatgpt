@@ -1,15 +1,26 @@
 import Modal from "@/components/Modal.vue";
 
-import { App } from "vue";
+import { App, provide, inject } from "vue";
+import mitt, { Emitter, EventType } from "mitt";
 
-declare module "vue" {
-  interface ComponentCustomProperties {
-    $modal: {
-      show: () => void;
-      hide: () => void;
-    };
-  }
-}
+const emitter = mitt();
+
+export const useModal = () => {
+  const modalEvent = inject("app-modal-emit") as Emitter<
+    Record<EventType, unknown>
+  >;
+  return {
+    show: () => {
+      modalEvent.emit("show");
+    },
+    hide: () => {
+      modalEvent.emit("hide");
+    },
+    toggle: () => {
+      modalEvent.emit("toggle");
+    },
+  };
+};
 
 export default {
   install(app: App): void {
@@ -17,12 +28,6 @@ export default {
 
     app.component("app-modal", Modal);
 
-    app.config.globalProperties.$modal = {
-      show: () => { console.log('show');
-       },
-      hide: () => { console.log('hide'); },
-    };
-    // app.config.globalProperties.$modal.show = handleShow();
-    // app.config.globalProperties.$modal.hide = handleHide();
+    app.provide("app-modal-emit", emitter);
   },
 };

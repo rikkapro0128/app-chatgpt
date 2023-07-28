@@ -10,7 +10,8 @@
           lời</div>
         <div v-else class="bg-[#3ebbe5] w-fit text-[10px] px-2 rounded-full text-[#134353] mb-2">bạn hỏi
         </div>
-        <MdPreview v-if="props.position === 'left'" editorId="preview-only" :modelValue="props.message" />
+        <MdPreview v-if="props.position === 'left'" editorId="preview-only"
+          :modelValue="props.message ? props.message : 'có lỗi xảy ra, mời bạn hỏi lại.'" />
         <div v-else>{{ props.message }}</div>
       </div>
     </div>

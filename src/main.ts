@@ -15,7 +15,7 @@ import "@/tailwindcss/style.css";
 import "@/theme/variables.css";
 
 const pinia = createPinia();
-const app = createApp(App).use(router).use(pinia).use(Modal);
+const app = createApp(App).use(Modal).use(router).use(pinia);
 
 router.isReady().then(() => {
   app.mount("#app");
