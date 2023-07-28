@@ -1,8 +1,11 @@
 <template>
   <div class="soft--shadow">
-    <div class="bg-green-500 p-4 flex items-center">
-      <i style="line-height: 0;" class="fi fi-rr-comment"></i>
-      <h3 class="pl-2">{{ props.title }}</h3>
+    <div class="bg-green-500 p-4 flex justify-between">
+      <div class="flex items-center">
+        <i style="line-height: 0;" class="fi fi-rr-comment"></i>
+        <h3 class="pl-2">{{ props.title }}</h3>
+      </div>
+      <!-- <div @click="$modal.show()">chi tiết</div> -->
     </div>
   </div>
 </template>

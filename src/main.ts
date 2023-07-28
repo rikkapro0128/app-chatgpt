@@ -3,6 +3,7 @@ import { createPinia } from "pinia";
 
 import App from "./App.vue";
 import router from "./router";
+import Modal from '@/plugins/Modal';
 
 import "@flaticon/flaticon-uicons/css/all/all.css";
 
@@ -14,7 +15,7 @@ import "@/tailwindcss/style.css";
 import "@/theme/variables.css";
 
 const pinia = createPinia();
-const app = createApp(App).use(router).use(pinia);
+const app = createApp(App).use(router).use(pinia).use(Modal);
 
 router.isReady().then(() => {
   app.mount("#app");
